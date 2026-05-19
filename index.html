@@ -13,17 +13,17 @@
     />
     <style>
       :root {
-        --bg: #0d1a14;
-        --bg2: #111f18;
-        --bg3: #162319;
-        --gold: #c9a84c;
-        --gold2: #e8c96d;
-        --gold-dim: #9c7a34;
-        --green: #1a3428;
-        --green2: #22443a;
-        --text: #e8e0d0;
-        --text-dim: #8a8070;
-        --white: #f5f0e8;
+        --bg: #faf7f2;
+        --bg2: #f2ede3;
+        --bg3: #ffffff;
+        --gold: #e07820;
+        --gold2: #f59d3d;
+        --gold-dim: #a85f18;
+        --green: #2d6b35;
+        --green2: #4a8c3f;
+        --text: #2d3748;
+        --text-dim: #718096;
+        --white: #ffffff;
         --radius: 14px;
       }
 
@@ -64,10 +64,14 @@
           backdrop-filter 0.35s;
       }
       #site-header.scrolled {
-        background: rgba(13, 26, 20, 0.92);
+        background: rgba(255, 255, 255, 0.96);
         backdrop-filter: blur(14px);
         padding: 10px 40px;
-        border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+        border-bottom: 1px solid rgba(224, 120, 32, 0.2);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+      }
+      #site-header.scrolled nav a:hover {
+        color: var(--gold);
       }
       .header-brand {
         display: flex;
@@ -89,7 +93,7 @@
       .header-brand span {
         font-family: "Cormorant Garamond", serif;
         font-size: 1.25rem;
-        color: var(--white);
+        color: var(--text);
         font-weight: 400;
         letter-spacing: 0.04em;
       }
@@ -98,19 +102,15 @@
         gap: 32px;
       }
       nav a {
-        color: var(--white);
+        color: var(--text);
         text-decoration: none;
         font-size: 0.85rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        opacity: 0.85;
-        transition:
-          opacity 0.2s,
-          color 0.2s;
+        transition: color 0.2s;
       }
       nav a:hover {
-        opacity: 1;
-        color: var(--gold2);
+        color: var(--gold);
       }
 
       .ham {
@@ -123,7 +123,7 @@
       .ham span {
         width: 26px;
         height: 2px;
-        background: var(--white);
+        background: var(--green);
         border-radius: 2px;
         transition: 0.3s;
       }
@@ -134,7 +134,7 @@
         position: fixed;
         inset: 0;
         z-index: 150;
-        background: rgba(13, 26, 20, 0.97);
+        background: rgba(9, 21, 16, 0.97);
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -190,26 +190,7 @@
         justify-content: center;
         text-align: center;
         overflow: hidden;
-      }
-      .hero-bg {
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(
-            to bottom,
-            rgba(13, 26, 20, 0.45) 0%,
-            rgba(13, 26, 20, 0.8) 60%,
-            var(--bg) 100%
-          ),
-          url("STekt_ris_og_kyllingvinger.jpg") center/cover no-repeat;
-      }
-      /* gold ornament lines */
-      .hero-bg::before {
-        content: "";
-        position: absolute;
-        inset: 30px;
-        border: 1px solid rgba(201, 168, 76, 0.18);
-        pointer-events: none;
+        background: var(--bg);
       }
       .hero-content {
         position: relative;
@@ -220,7 +201,7 @@
         font-size: 0.75rem;
         letter-spacing: 0.3em;
         text-transform: uppercase;
-        color: var(--gold2);
+        color: var(--green);
         margin-bottom: 18px;
         animation: fadeUp 0.9s 0.1s both;
       }
@@ -229,51 +210,58 @@
         font-size: clamp(3rem, 9vw, 7rem);
         font-weight: 300;
         line-height: 1.05;
-        color: var(--white);
+        color: var(--text);
         letter-spacing: 0.02em;
         animation: fadeUp 0.9s 0.25s both;
       }
       .hero-title em {
         font-style: italic;
-        color: var(--gold2);
+        color: var(--gold);
       }
       .hero-divider {
         width: 60px;
         height: 1px;
         background: var(--gold);
         margin: 22px auto;
-        opacity: 0.6;
+        opacity: 0.5;
         animation: fadeUp 0.9s 0.4s both;
       }
       .hero-info {
         font-size: 0.9rem;
-        color: rgba(232, 224, 208, 0.75);
+        color: var(--text-dim);
         line-height: 2;
         animation: fadeUp 0.9s 0.5s both;
       }
       .hero-info a {
-        color: var(--gold2);
+        color: var(--gold);
         text-decoration: none;
       }
       .hero-cta {
         margin-top: 36px;
         display: inline-block;
-        padding: 14px 42px;
-        border: 1px solid var(--gold);
-        color: var(--gold2);
+        padding: 16px 48px;
+        background: var(--gold);
+        border: 2px solid var(--gold);
+        color: #ffffff;
         font-size: 0.8rem;
+        font-weight: 500;
         letter-spacing: 0.2em;
         text-transform: uppercase;
         text-decoration: none;
         font-family: "DM Sans", sans-serif;
+        border-radius: 3px;
         transition:
-          background 0.25s,
-          color 0.25s;
+          background 0.3s,
+          border-color 0.3s,
+          color 0.3s,
+          transform 0.2s;
         animation: fadeUp 0.9s 0.65s both;
       }
       .hero-cta:hover {
-        background: var(--gold);
-        color: var(--bg);
+        background: var(--green2);
+        border-color: var(--green2);
+        color: var(--white);
+        transform: translateY(-2px);
       }
 
       @keyframes fadeUp {
@@ -296,7 +284,7 @@
         font-size: 0.72rem;
         letter-spacing: 0.3em;
         text-transform: uppercase;
-        color: var(--gold);
+        color: var(--green);
         display: block;
         margin-bottom: 10px;
       }
@@ -304,7 +292,7 @@
         font-family: "Cormorant Garamond", serif;
         font-size: clamp(2rem, 5vw, 3.2rem);
         font-weight: 300;
-        color: var(--white);
+        color: var(--gold);
         letter-spacing: 0.04em;
       }
       .gold-rule {
@@ -332,7 +320,7 @@
       }
       .cat-tab {
         padding: 8px 20px;
-        border: 1px solid rgba(201, 168, 76, 0.3);
+        border: 1px solid rgba(45, 107, 53, 0.25);
         background: transparent;
         color: var(--text-dim);
         font-family: "DM Sans", sans-serif;
@@ -344,13 +332,14 @@
         transition: all 0.22s;
       }
       .cat-tab:hover {
-        border-color: var(--gold);
-        color: var(--gold);
+        border-color: var(--green);
+        color: var(--green);
+        background: rgba(45, 107, 53, 0.06);
       }
       .cat-tab.active {
-        background: var(--gold);
-        border-color: var(--gold);
-        color: var(--bg);
+        background: var(--green);
+        border-color: var(--green);
+        color: #ffffff;
         font-weight: 500;
       }
 
@@ -359,10 +348,10 @@
         font-family: "Cormorant Garamond", serif;
         font-size: 1.5rem;
         font-weight: 400;
-        color: var(--gold2);
+        color: var(--gold);
         letter-spacing: 0.06em;
         margin: 48px 0 20px;
-        border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+        border-bottom: 2px solid rgba(45, 107, 53, 0.2);
         padding-bottom: 12px;
       }
       .cat-sub {
@@ -392,20 +381,22 @@
 
       .menu-card {
         background: var(--bg3);
-        border: 1px solid rgba(201, 168, 76, 0.1);
+        border: 1px solid rgba(45, 107, 53, 0.15);
+        border-top: 3px solid var(--green);
         border-radius: var(--radius);
         overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
         transition:
           transform 0.25s,
-          border-color 0.25s,
-          box-shadow 0.25s;
+          box-shadow 0.25s,
+          border-top-color 0.25s;
         display: flex;
         flex-direction: column;
       }
       .menu-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(201, 168, 76, 0.35);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 10px 36px rgba(0, 0, 0, 0.11);
+        border-top-color: var(--green2);
       }
       .card-img {
         width: 100%;
@@ -427,6 +418,21 @@
         justify-content: center;
         font-size: 2.5rem;
       }
+
+      /* Portrait variant for drinks */
+      .card-img.portrait {
+        aspect-ratio: 2 / 3;
+        height: auto;
+        object-fit: contain;
+        background: #f6f4ef;
+        padding: 12px;
+      }
+      .card-img-placeholder.portrait {
+        aspect-ratio: 2 / 3;
+        height: auto;
+        font-size: 3.5rem;
+      }
+
       .card-body {
         padding: 18px 18px 20px;
         flex: 1;
@@ -436,7 +442,7 @@
       .card-id {
         font-size: 0.68rem;
         letter-spacing: 0.2em;
-        color: var(--gold-dim);
+        color: var(--green);
         text-transform: uppercase;
         margin-bottom: 6px;
       }
@@ -444,7 +450,7 @@
         font-family: "Cormorant Garamond", serif;
         font-size: 1.15rem;
         font-weight: 400;
-        color: var(--white);
+        color: var(--text);
         line-height: 1.3;
         margin-bottom: 8px;
       }
@@ -460,12 +466,12 @@
         justify-content: space-between;
         margin-top: 14px;
         padding-top: 12px;
-        border-top: 1px solid rgba(201, 168, 76, 0.1);
+        border-top: 1px solid rgba(0, 0, 0, 0.07);
       }
       .card-price {
         font-family: "Cormorant Garamond", serif;
         font-size: 1.25rem;
-        color: var(--gold2);
+        color: var(--gold);
       }
       .card-price-dual {
         font-size: 0.82rem;
@@ -475,11 +481,11 @@
         font-size: 0.65rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        background: rgba(201, 168, 76, 0.12);
+        background: rgba(224, 120, 32, 0.12);
         color: var(--gold);
         padding: 3px 9px;
         border-radius: 20px;
-        border: 1px solid rgba(201, 168, 76, 0.2);
+        border: 1px solid rgba(224, 120, 32, 0.2);
       }
 
       /* Simple list for Drinks & Extra */
@@ -493,14 +499,14 @@
         align-items: center;
         justify-content: space-between;
         padding: 13px 4px;
-        border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+        border-bottom: 1px solid rgba(45, 107, 53, 0.1);
         transition: background 0.2s;
       }
       .simple-list-item:last-child {
         border-bottom: none;
       }
       .simple-list-item:hover {
-        background: rgba(201, 168, 76, 0.04);
+        background: rgba(45, 107, 53, 0.05);
         padding-left: 10px;
         padding-right: 10px;
         border-radius: 6px;
@@ -508,7 +514,7 @@
       .simple-list-item .name {
         font-family: "Cormorant Garamond", serif;
         font-size: 1.05rem;
-        color: var(--white);
+        color: var(--text);
       }
       .simple-list-item .price {
         color: var(--gold2);
@@ -519,8 +525,8 @@
       /* ───────── OM OSS ───────── */
       #om-oss {
         background: var(--bg2);
-        border-top: 1px solid rgba(201, 168, 76, 0.1);
-        border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+        border-top: 1px solid rgba(224, 120, 32, 0.2);
+        border-bottom: 1px solid rgba(224, 120, 32, 0.2);
         padding: 80px 20px;
       }
       .om-grid {
@@ -550,7 +556,7 @@
         content: "";
         position: absolute;
         inset: -10px;
-        border: 1px solid rgba(201, 168, 76, 0.25);
+        border: 1px solid rgba(45, 107, 53, 0.3);
         border-radius: calc(var(--radius) + 4px);
         pointer-events: none;
       }
@@ -558,7 +564,7 @@
         font-size: 0.72rem;
         letter-spacing: 0.3em;
         text-transform: uppercase;
-        color: var(--gold);
+        color: var(--green);
         display: block;
         margin-bottom: 14px;
       }
@@ -566,7 +572,7 @@
         font-family: "Cormorant Garamond", serif;
         font-size: clamp(1.8rem, 4vw, 2.6rem);
         font-weight: 300;
-        color: var(--white);
+        color: var(--gold);
         margin-bottom: 20px;
         line-height: 1.15;
       }
@@ -598,7 +604,7 @@
       .info-block h3 {
         font-family: "Cormorant Garamond", serif;
         font-size: 1.3rem;
-        color: var(--gold2);
+        color: var(--green);
         margin-bottom: 14px;
         letter-spacing: 0.06em;
       }
@@ -611,12 +617,12 @@
         text-decoration: none;
       }
       .info-block a:hover {
-        color: var(--gold2);
+        color: var(--green);
       }
       .info-block .big-phone {
         font-family: "Cormorant Garamond", serif;
         font-size: 2rem;
-        color: var(--white);
+        color: var(--text);
         letter-spacing: 0.06em;
         transition: color 0.2s;
       }
@@ -628,7 +634,7 @@
       .map-wrap {
         border-radius: var(--radius);
         overflow: hidden;
-        border: 1px solid rgba(201, 168, 76, 0.15);
+        border: 1px solid rgba(224, 120, 32, 0.15);
         grid-column: 1 / -1;
         height: 300px;
       }
@@ -636,13 +642,12 @@
         width: 100%;
         height: 100%;
         border: none;
-        filter: invert(90%) hue-rotate(170deg) saturate(0.3);
       }
 
       /* ───────── FOOTER ───────── */
       footer {
-        background: #070f0b;
-        border-top: 1px solid rgba(201, 168, 76, 0.15);
+        background: var(--bg);
+        border-top: 1px solid rgba(45, 107, 53, 0.15);
         padding: 56px 40px 28px;
       }
       .footer-grid {
@@ -693,24 +698,20 @@
         margin-top: 16px;
       }
       .social-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 1px solid rgba(201, 168, 76, 0.25);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--gold);
+        display: inline-flex;
+        color: var(--gold2);
         text-decoration: none;
-        font-size: 1rem;
         transition:
-          background 0.2s,
-          border-color 0.2s;
+          color 0.2s,
+          transform 0.2s;
+      }
+      .social-icon svg {
+        width: 32px;
+        height: 32px;
       }
       .social-icon:hover {
-        background: var(--gold);
-        color: var(--bg);
-        border-color: var(--gold);
+        color: var(--green2);
+        transform: scale(1.12);
       }
       .footer-bottom {
         max-width: 1100px;
@@ -738,7 +739,7 @@
         height: 44px;
         border-radius: 50%;
         background: var(--gold);
-        color: var(--bg);
+        color: #ffffff;
         border: none;
         cursor: pointer;
         font-size: 1.1rem;
@@ -808,9 +809,8 @@
     <!-- ─── HERO ─── -->
     <section id="hjem">
       <div id="hero">
-        <div class="hero-bg"></div>
         <div class="hero-content">
-          <p class="hero-eyebrow">Tradisjonell · Thaimat · Haugesund</p>
+          <p class="hero-eyebrow">Tradisjonell · Thaimat</p>
           <h1 class="hero-title">Thai <em>Delikatesser</em></h1>
           <div class="hero-divider"></div>
           <div class="hero-info">
@@ -844,7 +844,7 @@
       <div class="om-grid">
         <div class="om-img-wrap">
           <img
-            src="679744366_122213413634359840_820571167548743923_n.jpg"
+            src="Autentisk smaker.png"
             alt="Mat fra Thai Delikatesser"
             onerror="
               this.src = '';
@@ -899,7 +899,7 @@
         <div class="info-block">
           <h3>Åpningstider</h3>
           <p>Mandag – Søndag</p>
-          <p><strong style="color: var(--white)">14:00 – 21:00</strong></p>
+          <p><strong style="color: var(--text)">14:00 – 21:00</strong></p>
         </div>
         <div class="info-block">
           <h3>Telefon</h3>
@@ -918,41 +918,16 @@
           </p>
           <div class="social-icons">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=61560795226777"
               target="_blank"
               rel="noopener"
               class="social-icon"
               aria-label="Facebook"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path
-                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
                 />
-              </svg>
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener"
-              class="social-icon"
-              aria-label="Instagram"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
             </a>
           </div>
@@ -975,7 +950,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img
-            src="Transparent_Logo.png"
+            src="Design uten navn.png"
             alt="Thai Delikatesser"
             onerror="this.style.display = 'none'"
           />
@@ -1008,7 +983,8 @@
           © 2026 Thai Delikatesser &nbsp;·&nbsp; Alle rettigheter forbeholdt
         </p>
         <p style="color: rgba(138, 128, 112, 0.4)">
-          Utviklet med ❤ for Thai Delikatesser
+          Utviklet med ❤ for Thai Delikatesser &nbsp;·&nbsp; Utviklet av Marvin
+          Nak-in
         </p>
       </div>
     </footer>
@@ -1084,7 +1060,7 @@
                 pris_stor: "169,-",
                 beskrivelse:
                   "Gulrot, kål, kylling, glassnudler, soyasaus, østerssaus",
-                img: "",
+                img: "nr1.jpg",
               },
               {
                 id: "2",
@@ -1092,7 +1068,7 @@
                 pris_sma: "129,-",
                 pris_stor: "169,-",
                 beskrivelse: "Kylling, egg",
-                img: "STekt_ris_og_kyllingvinger.jpg",
+                img: "nr2.jpg",
               },
               {
                 id: "3",
@@ -1100,7 +1076,7 @@
                 pris_sma: "129,-",
                 pris_stor: "169,-",
                 beskrivelse: "Kylling, soyasaus, østerssaus",
-                img: "",
+                img: "nr3.jpg",
               },
               {
                 id: "4",
@@ -1108,7 +1084,7 @@
                 pris_sma: "129,-",
                 pris_stor: "169,-",
                 beskrivelse: "Hvetemel, brødsmuler",
-                img: "",
+                img: "nr4.jpg",
               },
               {
                 id: "5",
@@ -1117,7 +1093,7 @@
                 pris_stor: "169,-",
                 beskrivelse:
                   "Poteter, grønnsaker, soyasaus, østerssaus, karripulver",
-                img: "",
+                img: "nr5.jpg",
               },
               {
                 id: "6",
@@ -1125,7 +1101,7 @@
                 pris_sma: "129,-",
                 pris_stor: "169,-",
                 beskrivelse: "Scampi, løk, soyasaus",
-                img: "",
+                img: "nr6.jpg",
               },
               {
                 id: "7",
@@ -1133,7 +1109,7 @@
                 pris_sma: "129,-",
                 pris_stor: "179,-",
                 beskrivelse: "Soyasaus, østerssaus, hvetemel, brødsmuler",
-                img: "",
+                img: "nr7.jpg",
               },
               {
                 id: "8",
@@ -1141,7 +1117,7 @@
                 pris_sma: "129,-",
                 pris_stor: "179,-",
                 beskrivelse: "Soyasaus, østerssaus, brødsmuler, hvetemel",
-                img: "",
+                img: "nr8.jpg",
               },
               {
                 id: "9",
@@ -1149,7 +1125,7 @@
                 pris_sma: "129,-",
                 pris_stor: "179,-",
                 beskrivelse: "Soyasaus, østerssaus, hvitløkspulver",
-                img: "",
+                img: "nr9.jpg",
               },
               {
                 id: "10",
@@ -1157,7 +1133,7 @@
                 pris_sma: "129,-",
                 pris_stor: "179,-",
                 beskrivelse: "Kokosmelk, karripulver",
-                img: "",
+                img: "nr10.jpg",
               },
               {
                 id: "11",
@@ -1165,7 +1141,7 @@
                 pris_sma: "129,-",
                 pris_stor: "179,-",
                 beskrivelse: "Reke, pepper",
-                img: "",
+                img: "nr11.jpg",
               },
               {
                 id: "12",
@@ -1173,7 +1149,7 @@
                 pris: "259,-",
                 beskrivelse:
                   "Stekt eggnudler, innbakt scampi, vårruller, samosa, kyllingvinger, kylling cashewnøttsaus",
-                img: "",
+                img: "nr12.jpg",
               },
               {
                 id: "13",
@@ -1181,7 +1157,7 @@
                 pris: "349,-",
                 beskrivelse:
                   "Pommes frites, vårruller, samosa, innbakt scampi, kyllingvinger, wonton, gyoza, kyllingnuggets",
-                img: "",
+                img: "nr13.jpg",
               },
             ],
           },
@@ -1195,28 +1171,28 @@
                 navn: "Stekte eggnudler med grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus",
-                img: "679744366_122213413634359840_820571167548743923_n.jpg",
+                img: "nr14.jpg",
               },
               {
                 id: "15",
                 navn: "Stekte risnudler med egg (Padthai)",
                 pris: "179,-",
                 beskrivelse: "Tamarindsaus, soyasaus, østerssaus, sitron",
-                img: "",
+                img: "nr15.jpg",
               },
               {
                 id: "16",
                 navn: "Stekte eggnudler med chillisaus",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus, chili",
-                img: "",
+                img: "nr16.jpg",
               },
               {
                 id: "17",
                 navn: "Stekt risnudler med svart soyasaus",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, egg, svart soyasaus",
-                img: "",
+                img: "nr17.jpg",
               },
             ],
           },
@@ -1230,105 +1206,105 @@
                 navn: "Stekt ris og grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker blanding, egg, soyasaus",
-                img: "STekt_ris_og_kyllingvinger.jpg",
+                img: "nr18.jpg",
               },
               {
                 id: "19",
                 navn: "Stekt ris med karrisaus",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker blanding, egg, soyasaus, karripulver",
-                img: "",
+                img: "nr19.jpg",
               },
               {
                 id: "20",
                 navn: "Chilisaus med basilikum",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus, chili",
-                img: "",
+                img: "nr20.jpg",
               },
               {
                 id: "21",
                 navn: "Chilisaus med søt basilikum",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus, chili",
-                img: "",
+                img: "nr21.jpg",
               },
               {
                 id: "22",
                 navn: "Stekt curry paste",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus, bønneskudd",
-                img: "",
+                img: "nr22.jpg",
               },
               {
                 id: "23",
                 navn: "Stekt chilli paste",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus",
-                img: "",
+                img: "nr23.jpg",
               },
               {
                 id: "24",
                 navn: "Thai wok",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus",
-                img: "",
+                img: "nr24.jpg",
               },
               {
                 id: "25",
                 navn: "Panang curry med grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Kokosmelk, søt basilikum",
-                img: "",
+                img: "nr25.jpg",
               },
               {
                 id: "26",
                 navn: "Grønn curry med grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Kokosmelk, bambusskudd, søt basilikum",
-                img: "",
+                img: "nr26.jpg",
               },
               {
                 id: "27",
                 navn: "Rød curry med grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Kokosmelk, bambusskudd, søt basilikum",
-                img: "",
+                img: "nr27.jpg",
               },
               {
                 id: "28",
                 navn: "Masaman curry med poteter",
                 pris: "179,-",
                 beskrivelse: "Kokosmelk, poteter, gulrot, peanøtter",
-                img: "",
+                img: "nr28.jpg",
               },
               {
                 id: "29",
                 navn: "Østerssaus med grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus",
-                img: "",
+                img: "nr29.jpg",
               },
               {
                 id: "30",
                 navn: "Sursøt saus med grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, ananas, tomatketchup",
-                img: "",
+                img: "nr30.jpg",
               },
               {
                 id: "31",
                 navn: "Cashewnøttsaus med grønnsaker",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, chili paste, cashewnøtter",
-                img: "",
+                img: "nr31.jpg",
               },
               {
                 id: "32",
                 navn: "Stekt med karrisaus egg",
                 pris: "179,-",
                 beskrivelse: "Grønnsaker, soyasaus, østerssaus, karripulver",
-                img: "",
+                img: "nr32.jpg",
               },
             ],
           },
@@ -1342,26 +1318,41 @@
                 navn: "Tom yam suppe med melk",
                 pris: "179,-",
                 beskrivelse: "Sitron, gulrot, sopp, koriander",
-                img: "",
+                img: "nr33.jpg",
               },
               {
                 id: "34",
                 navn: "Tom ka suppe med kokosmelk",
                 pris: "179,-",
                 beskrivelse: "Sitron, gulrot, sopp, koriander",
-                img: "",
+                img: "nr34.jpg",
               },
             ],
           },
           {
             navn: "Drikke",
-            type: "list",
+            type: "cards",
             retter: [
-              { navn: "Matcha melk te", pris: "69,-" },
-              { navn: "Taro melk te", pris: "69,-" },
-              { navn: "Thai melk te", pris: "69,-" },
-              { navn: "Klassisk melk te", pris: "69,-" },
-              { navn: "Brus", pris: "39,-" },
+              { navn: "Matcha melk te", pris: "69,-", img: "", portrait: true },
+              {
+                navn: "Taro melk te",
+                pris: "69,-",
+                img: "taro melk te.jpg",
+                portrait: true,
+              },
+              {
+                navn: "Thai melk te",
+                pris: "69,-",
+                img: "thai melk te.jpg",
+                portrait: true,
+              },
+              {
+                navn: "Klassisk melk te",
+                pris: "69,-",
+                img: "klasisk melk te.jpg",
+                portrait: true,
+              },
+              { navn: "Brus", pris: "39,-", img: "", portrait: true },
             ],
           },
           {
@@ -1413,15 +1404,18 @@
 
       function cardHTML(item, i) {
         const hasImg = item.img && item.img.trim();
+        const imgClass = "card-img" + (item.portrait ? " portrait" : "");
+        const phClass =
+          "card-img-placeholder" + (item.portrait ? " portrait" : "");
         const imgSection = hasImg
-          ? `<img class="card-img" src="${item.img}" alt="${item.navn}" loading="lazy"
+          ? `<img class="${imgClass}" src="${item.img}" alt="${item.navn}" loading="lazy"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">`
           : "";
-        const placeholder = `<div class="card-img-placeholder" style="${hasImg ? "display:none" : ""}">${FOOD_EMOJIS[i % FOOD_EMOJIS.length]}</div>`;
+        const placeholder = `<div class="${phClass}" style="${hasImg ? "display:none" : ""}">${FOOD_EMOJIS[i % FOOD_EMOJIS.length]}</div>`;
 
         const priceHTML = item.pris
           ? `<span class="card-price">${item.pris}</span>`
-          : `<span class="card-price-dual"><span class="card-price">${item.pris_sma}</span> <span style="color:var(--text-dim);font-size:.8rem;">/ ${item.pris_stor} stor</span></span>`;
+          : `<span class="card-price">${item.pris_sma}</span>`;
 
         return `
     <div class="menu-card">
@@ -1432,7 +1426,6 @@
         ${item.beskrivelse ? `<p class="card-desc">${item.beskrivelse}</p>` : ""}
         <div class="card-footer">
           ${priceHTML}
-          <span class="card-badge">Bestill</span>
         </div>
       </div>
     </div>`;
