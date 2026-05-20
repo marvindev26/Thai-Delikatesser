@@ -87,7 +87,7 @@
         pointer-events: auto;
       }
       .header-brand img {
-        height: 52px;
+        height: 64px;
         width: auto;
       }
       .header-brand span {
@@ -664,9 +664,14 @@
           gap: 28px;
         }
       }
-      .footer-brand img {
-        height: 60px;
-        margin-bottom: 14px;
+      .footer-brand-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: var(--gold);
+        letter-spacing: 0.04em;
+        margin-bottom: 12px;
+        line-height: 1.2;
       }
       .footer-brand p {
         font-size: 0.82rem;
@@ -949,11 +954,7 @@
     <footer>
       <div class="footer-grid">
         <div class="footer-brand">
-          <img
-            src="Design uten navn.png"
-            alt="Thai Delikatesser"
-            onerror="this.style.display = 'none'"
-          />
+          <h3 class="footer-brand-name">Thai Delikatesser</h3>
           <p>
             Tradisjonell thaimat laget med hjertet – rett i sentrum av
             Haugesund.
